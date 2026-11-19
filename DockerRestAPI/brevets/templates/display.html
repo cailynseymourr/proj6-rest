@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Saved control times</title>
+</head>
+<body>
+  <h1>Saved control times</h1>
+
+  {% if error %}
+    <p style="color: #b42323;">{{ error }}</p>
+  {% elif not items %}
+    <p>No control times have been saved yet.</p>
+  {% else %}
+    <table border="1" cellpadding="6">
+      <tr><th>Distance (km)</th><th>Open</th><th>Close</th></tr>
+      {% for item in items %}
+      <tr>
+        <td>{{ item.km }}</td>
+        <td>{{ item.open }}</td>
+        <td>{{ item.close }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  {% endif %}
+
+  <p><a href="/">Back to the calculator</a></p>
+</body>
+</html>
